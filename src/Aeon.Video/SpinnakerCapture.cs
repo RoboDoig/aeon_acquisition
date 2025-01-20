@@ -26,6 +26,9 @@ namespace Aeon.Video
         [Description("The size of the binning area of the sensor, e.g. a binning size of 2 specifies a 2x2 binning region.")]
         public int Binning { get; set; }
 
+        [Description("The hardware trigger to use as a trigger source.")]
+        public TriggerSourceEnums TriggerSource { get; set; }
+
         protected override void Configure(IManagedCamera camera)
         {
             try { camera.AcquisitionStop.Execute(); }
@@ -38,7 +41,7 @@ namespace Aeon.Video
             camera.AcquisitionFrameRateEnable.Value = false;
             camera.TriggerMode.Value = TriggerModeEnums.On.ToString();
             camera.TriggerSelector.Value = TriggerSelectorEnums.FrameStart.ToString();
-            camera.TriggerSource.Value = TriggerSourceEnums.Line0.ToString();
+            camera.TriggerSource.Value = TriggerSource.ToString();
             camera.TriggerOverlap.Value = TriggerOverlapEnums.ReadOut.ToString();
             camera.TriggerActivation.Value = TriggerActivationEnums.RisingEdge.ToString();
             camera.ExposureAuto.Value = ExposureAutoEnums.Off.ToString();
