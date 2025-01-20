@@ -26,7 +26,7 @@ namespace Aeon.Video
         [Description("The size of the binning area of the sensor, e.g. a binning size of 2 specifies a 2x2 binning region.")]
         public int Binning { get; set; }
 
-        [Description("The hardware trigger to use as a trigger source.")]
+        [Description("The hardware/software source to use as a trigger.")]
         public TriggerSourceEnums TriggerSource { get; set; }
 
         protected override void Configure(IManagedCamera camera)
